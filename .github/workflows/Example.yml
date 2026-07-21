@@ -1,0 +1,17 @@
+name: Example 1 testing github action 
+
+on: push
+
+jobs:
+    job_1:
+     runs-on: ubuntu-latest
+     steps:
+         - name: Hello Greetings!
+           run: echo "Hello welcome to the first github action example"
+
+         - name: list files and dirctory
+           run: ls -ltr
+
+         - name: read file 
+           run: cat file.txt
+         

@@ -9,6 +9,9 @@ jobs:
          - name: Hello Greetings!
            run: echo "Hello welcome to the first github action example"
 
+         - name: checkout the repo files
+           uses: actions/checkout@v4  
+
          - name: list files and dirctory
            run: ls -ltr
 

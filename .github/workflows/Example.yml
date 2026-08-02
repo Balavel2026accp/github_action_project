@@ -10,11 +10,18 @@ jobs:
            run: echo "Hello welcome to the first github action example"
 
          - name: checkout the repo files
-           uses: actions/checkout@v4  
+           uses: actions/checkout@v4 
 
-         - name: list files and dirctory
-           run: ls -ltr
+         - name: Welcome Messagef
+           run: |
+            echo "Hello welcome to the first github action example"
+            ls -ltra
+            cat file.txt
 
-         - name: read file 
-           run: cat file.txt
+
+        #  - name: list files and dirctory
+        #    run: ls -ltr
+
+        #  - name: read file 
+        #    run: cat file.txt
          

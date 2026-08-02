@@ -1,6 +1,11 @@
 name: 
 
-on: push
+on:
+  workflow_run:
+    workflows:
+      - "Example 1 testing github action"
+    types:
+      - completed
 
 jobs:
     job_1:

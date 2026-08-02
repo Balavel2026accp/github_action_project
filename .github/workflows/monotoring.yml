@@ -13,8 +13,8 @@ jobs:
      steps:
         - name: Find monitoring script
           run: |
-           file_name=$(find / -name "system_monitoring.sh" -type f)
-           echo "SCRIPT_PATH=$file_name" >> $GITHUB_ENV
+           sudo file_name=$(find / -name "system_monitoring.sh" -type f)
+           sudo echo "SCRIPT_PATH=$file_name" >> $GITHUB_ENV
 
         - name: Execute monitoring script
           run: |

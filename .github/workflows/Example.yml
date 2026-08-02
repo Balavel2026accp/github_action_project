@@ -24,8 +24,8 @@ jobs:
          - name: Generate ASCII for fun
            if: success()
            run: |
-            cowsay -f dragon "I am a big dragon" >> cowsay_gragon.txt
-            cowsay -f cow "I am not elephant" >> cowsay_gragon.txt
+            /usr/games/cowsay -f elephant "I am a big elephant" > cowsay_elephant.txt
+            /usr/games/cowsay -f default "I am not an elephant" >> cowsay_elephant.txt
 
          - name: view dragon.txt
            if: success()

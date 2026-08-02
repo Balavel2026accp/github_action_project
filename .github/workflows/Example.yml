@@ -12,7 +12,7 @@ jobs:
          - name: checkout the repo files
            uses: actions/checkout@v4 
 
-         - name: Welcome Messagef
+         - name: Welcome Message
            run: |
             echo "Hello welcome to the first github action example"
             ls -ltra

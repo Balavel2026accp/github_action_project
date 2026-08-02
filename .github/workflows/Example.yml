@@ -17,12 +17,19 @@ jobs:
             echo "Hello welcome to the first github action example"
             ls -ltra
             cat file.txt
+
+         - name: install cowsay
+           run: sudo apt-get install cowsay -y
             
          - name: Generate ASCII for fun
+           if: success()
            run: |
-            sudo apt install cowsay -y
             cowsay -f elephant "I am a big elephant" >> cowsay_elephant.txt
             cowsay -f cow "I am not elephant" >> cowsay_elephant.txt
+
+         - name: view dragon.txt
+           if: success()
+           run: cat -n cowsay_elephant.txt
 
 
 

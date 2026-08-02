@@ -24,12 +24,12 @@ jobs:
          - name: Generate ASCII for fun
            if: success()
            run: |
-            cowsay -f elephant "I am a big elephant" >> cowsay_elephant.txt
-            cowsay -f cow "I am not elephant" >> cowsay_elephant.txt
+            cowsay -f dragon "I am a big dragon" >> cowsay_gragon.txt
+            cowsay -f cow "I am not elephant" >> cowsay_gragon.txt
 
          - name: view dragon.txt
            if: success()
-           run: cat -n cowsay_elephant.txt
+           run: cat -n cowsay_gragon.txt
 
 
 

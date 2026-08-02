@@ -20,6 +20,9 @@ jobs:
         #   run: |
         #    echo "Script path: $SCRIPT_PATH"
         #    bash "$SCRIPT_PATH"
+        - name: checkout the repo files
+          uses: actions/checkout@v4 
+          
         - name: Run the monitoring script
           run: sh system_monitoring.sh
 

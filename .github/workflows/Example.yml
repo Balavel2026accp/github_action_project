@@ -20,6 +20,7 @@ jobs:
             
          - name: Generate ASCII for fun
            run: |
+            sudo apt install cowsay -y
             cowsay -f elephant "I am a big elephant" >> cowsay_elephant.txt
             cowsay -f cow "I am not elephant" >> cowsay_elephant.txt
 

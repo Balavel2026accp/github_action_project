@@ -1,0 +1,11 @@
+name: 
+
+on: push
+
+jobs:
+    job_1:
+     runs-on: ubuntu-latest
+     steps:
+        - name: execute monitoring scripts
+          run: ./system_monitoring.bash
+

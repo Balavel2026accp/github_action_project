@@ -17,6 +17,13 @@ jobs:
             echo "Hello welcome to the first github action example"
             ls -ltra
             cat file.txt
+            
+         - name: Generate ASCII for fun
+           run: |
+            cowsay -f elephant "I am a big elephant" >> cowsay_elephant.txt
+            cowsay -f cow "I am not elephant" >> cowsay_elephant.txt
+
+
 
 
         #  - name: list files and dirctory

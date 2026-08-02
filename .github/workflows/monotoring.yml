@@ -11,13 +11,15 @@ jobs:
     job_1:
      runs-on: ubuntu-latest
      steps:
-        - name: Find monitoring script
-          run: |
-           sudo file_name=$(find / -name "system_monitoring.sh" -type f)
-           sudo echo "SCRIPT_PATH=$file_name" >> $GITHUB_ENV
+        # - name: Find monitoring script
+        #   run: |
+        #    sudo file_name=$(find / -name "system_monitoring.sh" -type f)
+        #    sudo echo "SCRIPT_PATH=$file_name" >> $GITHUB_ENV
 
-        - name: Execute monitoring script
-          run: |
-           echo "Script path: $SCRIPT_PATH"
-           bash "$SCRIPT_PATH"
+        # - name: Execute monitoring script
+        #   run: |
+        #    echo "Script path: $SCRIPT_PATH"
+        #    bash "$SCRIPT_PATH"
+        - name: Run the monitoring script
+          run: sh system_monitoring.sh
 

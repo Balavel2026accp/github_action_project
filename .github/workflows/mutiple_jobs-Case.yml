@@ -11,7 +11,8 @@ jobs:
               run: |
                 sudo apt-get install cowsay -y 
                 /usr/games/cowsay -f dragon "Build base" >> build.txt
-                locate build.txt
+                 file_path=$(find . -type f -name build.txt)
+                 echo "$file_path"
             - name: Sleep time
               run: sleep 30    
     

@@ -1,0 +1,55 @@
+name: Docker deplyment
+
+on: 
+  workflow_run:
+    workflows:
+      - "multiple job"
+    types:
+      - completed
+env:
+    Myaccountname: balavelu
+    myimagename: nginx-app
+    version: latest_v1
+
+jobs:
+    docker_build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build docker image
+              env:
+                DOCKER_USERNAME: baluvelu
+                image_name: nginx-app
+                tag: v1
+              run: echo docker build -t $DOCKER_USERNAME/$image_name:$tag
+    
+    docker_login:
+        needs: docker_build
+        runs-on: ubuntu-latest
+        env:
+            username: balavelu
+            
+        steps:
+            - name: docker login
+              env: 
+                password: Aceejkfty72782o
+              run: echo docker login -u $username -p $password
+    
+    docker_push: 
+        needs: docker_login
+        runs-on: ubuntu-latest
+        steps:
+            - name: Push into registry 
+              run: echo docker push $Myaccountname/$myimagename:$version
+
+    deploy:
+        needs: [docker_build,docker_login,docker_push]
+        runs-on: ubuntu-latest
+        steps:
+            - name: deploy docker app
+              run: echo docker pull $Myaccountname/$myimagename:$version
+            
+            - name: deploy 
+              env:
+                container_name: myapp
+                port: 80
+              run: docker run -d --name $container_name -p 8080:$port $Myaccountname/$myimagename:$version

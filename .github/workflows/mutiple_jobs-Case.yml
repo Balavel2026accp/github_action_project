@@ -19,14 +19,17 @@ jobs:
     Testing_content_of_the_file:
         runs-on: ubuntu-latest
         steps:
-            - name: check build.txt is not empty
-              run: |
-                file="build.txt"
-                if [ ! -s "$file" ]; then 
-                  echo "file is empty"
-                else
-                  echo "$file has data"
-                fi
+            # - name: check build.txt is not empty
+            #   run: |
+            #     file="build.txt"
+            #     if [ ! -s "$file" ]; then 
+            #       echo "file is empty"
+            #     else
+            #       echo "$file has data"
+            #     fi
+            - name: check grep 
+              run: grep -i "dragon" build.txt
+              
             - name: Sleep time
               run: sleep 10    
                 

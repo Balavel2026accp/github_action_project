@@ -52,4 +52,4 @@ jobs:
               env:
                 container_name: myapp
                 port: 80
-              run: docker run -d --name $container_name -p 8080:$port $Myaccountname/$myimagename:$version
+              run: echo docker run -d --name $container_name -p 8080:$port $Myaccountname/$myimagename:$version

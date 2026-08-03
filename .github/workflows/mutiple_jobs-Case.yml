@@ -17,6 +17,7 @@ jobs:
               run: sleep 30    
     
     Testing_content_of_the_file:
+        needs: Build_job_file_preparation
         runs-on: ubuntu-latest
         steps:
             # - name: check build.txt is not empty
@@ -29,11 +30,12 @@ jobs:
             #     fi
             - name: check grep 
               run: grep -i "dragon" build.txt
-              
+
             - name: Sleep time
               run: sleep 10    
                 
     view_content:
+        needs: [Build_job_file_preparation,Testing_content_of_the_file]
         runs-on: ubuntu-latest
         steps:
             - name: content of build.txt

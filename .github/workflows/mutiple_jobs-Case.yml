@@ -13,8 +13,15 @@ jobs:
                 /usr/games/cowsay -f dragon "Build base" >> build.txt
                  file_path=$(find . -type f -name build.txt)
                  echo "$file_path"
-            - name: Sleep time
-              run: sleep 30    
+
+            # - name: Sleep time
+            #   run: sleep 30
+
+            - name: 'Upload Artifact'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: my-artifact
+                  path: ./build.txt    
     
     Testing_content_of_the_file:
         needs: Build_job_file_preparation
@@ -28,6 +35,11 @@ jobs:
             #     else
             #       echo "$file has data"
             #     fi
+            - name: 'Upload Artifact'
+              uses: actions/download-artifact@v4
+              with:
+                  name: my-artifact
+
             - name: check grep 
               run: grep -i "dragon" build.txt
 
@@ -36,8 +48,13 @@ jobs:
                 
     view_content:
         needs: [Build_job_file_preparation,Testing_content_of_the_file]
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest  
         steps:
+            - name: 'Upload Artifact'
+              uses: actions/download-artifact@v4
+              with:
+                  name: my-artifact
+
             - name: content of build.txt
               run: |
                 echo "Content-data"

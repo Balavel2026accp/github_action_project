@@ -12,6 +12,8 @@ jobs:
                 sudo apt-get install cowsay -y 
                 /usr/games/cowsay -f dragon "Build base" >> build.txt
                 locate build.txt
+            - name: Sleep time
+              run: sleep 30    
     
     Testing_content_of_the_file:
         runs-on: ubuntu_latest
@@ -24,6 +26,8 @@ jobs:
                 else
                   echo "$file has data"
                 fi
+            - name: Sleep time
+              run: sleep 10    
                 
     view_content:
         runs-on: ubuntu_latest

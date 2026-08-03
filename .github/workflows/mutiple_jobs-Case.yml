@@ -41,7 +41,7 @@ jobs:
                   name: my-artifact
 
             - name: check grep 
-              run: grep -i "dragon" build.txt
+              run: grep -i "build" build.txt
 
             - name: Sleep time
               run: sleep 10    

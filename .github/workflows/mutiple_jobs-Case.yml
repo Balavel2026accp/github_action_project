@@ -1,0 +1,38 @@
+# Notes: Jobs run parallely when we have no defined the order and conditions
+name: multiple job 
+
+on: push
+
+jobs:
+    Build_job_file_preparation:
+        runs-on: ubuntu_latest
+        steps:
+            - name: Generated Dragon.txt
+              run: |
+                sudo apt-get install cowsay -y 
+                /usr/games/cowsay -f dragon "Build base" >> build.txt
+                locate build.txt
+    
+    Testing_content_of_the_file:
+        runs-on: ubuntu_latest
+        steps:
+            - name: check build.txt is not empty
+              run: |
+                file="build.txt"
+                if [ ! -s "$file" ]; then 
+                  echo "file is empty"
+                else
+                  echo "$file has data"
+                fi
+                
+    view_content:
+        runs-on: ubuntu_latest
+        steps:
+            - name: content of build.txt
+              run: |
+                echo "Content-data"
+                cat build.txt
+
+
+
+

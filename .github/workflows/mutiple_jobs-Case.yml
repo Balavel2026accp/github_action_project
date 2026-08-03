@@ -21,7 +21,8 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   name: my-artifact
-                  path: ./build.txt    
+                  path: ./build.txt 
+                  retention-days: 30   
     
     Testing_content_of_the_file:
         needs: Build_job_file_preparation

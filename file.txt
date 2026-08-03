@@ -1,3 +1,4 @@
 Global Trade Tensions: Donald Trump ordered a massive 50% tariff on numerous Canadian goods, sparking intense trade disputes.
 Sports Fallout: Following Spain’s victory over Argentina in the FIFA World Cup final, FIF
-+++ new line
++++ new line 
+inserting a line to trigger the pipeline. 

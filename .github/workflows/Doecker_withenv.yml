@@ -1,5 +1,6 @@
 name: Docker deplyment
-
+# we can use the variables under repor level too if we wnat to use the variabel accross the repor level and not only on workflw level
+# 
 on: 
   workflow_run:
     workflows:
@@ -30,9 +31,7 @@ jobs:
             
         steps:
             - name: docker login
-              env: 
-                password: Aceejkfty72782o
-              run: echo docker login -u $username -p $password
+              run: echo docker login -u $username -p ${{ secrets.PASSWORD }}
     
     docker_push: 
         needs: docker_login

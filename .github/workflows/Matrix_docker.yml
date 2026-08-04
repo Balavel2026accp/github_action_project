@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        image: [hello-world, alpine]
+        image: [hello-world, nginx]
 
     runs-on: ${{ matrix.os }}
 
@@ -21,5 +21,5 @@ jobs:
         run: docker run --rm hello-world
 
       - name: Run Alpine
-        if: matrix.image == 'alpine'
+        if: matrix.image == 'nginx'
         run: docker run --rm alpine echo "Hello from Alpine"

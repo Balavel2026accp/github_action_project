@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, ubuntu-20.04]
+        os: [ubuntu-latest]
         image: [hello-world, alpine]
 
     runs-on: ${{ matrix.os }}

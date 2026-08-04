@@ -6,8 +6,10 @@ on:
   #     - "Example 1 testing github action"
   #   types:
   #     - completed
-  schedule:
-    - cron: '*/1 * * * *'
+  # schedule:
+  #   - cron: '*/1 * * * *'
+  workflow_dispatch:
+
 
 jobs:
     job_1:

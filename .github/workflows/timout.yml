@@ -1,4 +1,4 @@
-name: concurrency_dispatch 
+name: Timeout 
 # It can be configured in the step and job level for the work flow 
 on:
   workflow_dispatch:

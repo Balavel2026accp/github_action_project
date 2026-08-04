@@ -1,18 +1,25 @@
-name: Matrix_with_docker
+name: Matrix with Docker
 
-on: 
-    push:
+on:
+  push:
 
 jobs:
-    deploy:
-        strategy:
-            matrix:
-                os: [ubuntu_latest, windows-latesr]       
-                images: [hello-world, alpine] 
-        runs-on: ${{ matrix.os }}
-        steps:
-            - name: check docker info
-              run: docker info
-              
-            - name: run docker ${{ matrix.images }}
-              run: docker run ${{ matrix.images }}  
+  deploy:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        image: [hello-world, alpine]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Docker Info
+        run: docker info
+
+      - name: Run Hello World
+        if: matrix.image == 'hello-world'
+        run: docker run --rm hello-world
+
+      - name: Run Alpine
+        if: matrix.image == 'alpine'
+        run: docker run --rm alpine echo "Hello from Alpine"

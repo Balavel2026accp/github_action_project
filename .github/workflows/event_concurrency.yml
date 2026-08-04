@@ -1,0 +1,22 @@
+name: concurrency_dispatch 
+# concurrency protect the workflow form executed double the time or multiple time, In make more protection in produaction level cases
+on:
+  workflow_dispatch:
+
+jobs:
+    job_1:
+     runs-on: ubuntu-latest
+     concurrency: 
+        group: Monitoring script
+        cancel-in-progress: true
+     steps:
+        - name: checkout the repo files
+          uses: actions/checkout@v4 
+
+        - name: Run the monitoring script
+          run: sh system_monitoring.sh
+
+        - name: check report output
+          if: success()
+          run: cat /tmp/system_monitoring_report.txt
+

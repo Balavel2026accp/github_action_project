@@ -1,0 +1,28 @@
+name: concurrency_dispatch 
+# It can be configured in the step and job level for the work flow 
+on:
+  workflow_dispatch:
+    
+
+jobs:
+    job_1:
+     runs-on: ubuntu-latest
+     #timeout-minutes: 1
+    #  concurrency: 
+    #     group: Monitoring script
+        #cancel-in-progress: true
+        #cancel-in-progress: false
+        
+     steps:
+        - name: checkout the repo files
+          uses: actions/checkout@v4 
+
+        - name: Run the monitoring script
+          run: sh system_monitoring.sh
+
+        - name: check report output
+          timeout-minutes: 1
+          if: success()
+          run: |
+           cat /tmp/system_monitoring_report.txt
+           sleep 600

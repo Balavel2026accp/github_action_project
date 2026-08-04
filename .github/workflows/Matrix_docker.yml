@@ -7,7 +7,7 @@ jobs:
   deploy:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, ubuntu-20.04]
         image: [hello-world, alpine]
 
     runs-on: ${{ matrix.os }}
@@ -17,7 +17,4 @@ jobs:
         run: docker info
 
       - name: Run Hello World
-        run: docker run hello-world
-
-      - name: Run Alpine
-        run: docker run alpine
+        run: docker run ${{ matrix.image}}

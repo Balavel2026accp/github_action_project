@@ -1,11 +1,13 @@
 name: Monitor
 
 on:
-  workflow_run:
-    workflows:
-      - "Example 1 testing github action"
-    types:
-      - completed
+  # workflow_run:
+  #   workflows:
+  #     - "Example 1 testing github action"
+  #   types:
+  #     - completed
+  schedule:
+    - cron: '*/1 * * * *'
 
 jobs:
     job_1:

@@ -6,15 +6,18 @@ on:
 jobs:
   deploy:
     strategy:
+      fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, ubuntu-20.04]
+        os: [ubuntu-latest, ubuntu-20.04]
         image: [hello-world, alpine]
 
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Docker Info
-        run: docker info
+      - name: Docker Version
+        run: |
+          docker version
+          docker info
 
-      - name: Run Hello World
-        run: docker run ${{ matrix.image}}
+      - name: Run Docker Image
+        run: docker run ${{ matrix.image }}

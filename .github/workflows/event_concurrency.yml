@@ -22,6 +22,6 @@ jobs:
           if: success()
           run: |
            cat /tmp/system_monitoring_report.txt
-           sleep 30
+           sleep 300
 
 
